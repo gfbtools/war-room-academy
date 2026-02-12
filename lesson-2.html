@@ -417,7 +417,8 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        message: input
+                        prompt: input,
+                        system: 'You are a helpful AI assistant.'
                     })
                 });
 
