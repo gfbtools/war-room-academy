@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Config Diagnostic</title>
+</head>
+<body>
+    <h1>War Room Academy - Config Diagnostic</h1>
+    <pre id="output"></pre>
+
+    <script src="app.js"></script>
+    <script>
+        const output = document.getElementById('output');
+        output.textContent = 'CONFIG.WORKER_URL = ' + CONFIG.WORKER_URL + '\n\n';
+        output.textContent += 'Type: ' + typeof CONFIG.WORKER_URL + '\n';
+        output.textContent += 'Length: ' + CONFIG.WORKER_URL.length + '\n';
+        output.textContent += 'Starts with https://: ' + CONFIG.WORKER_URL.startsWith('https://') + '\n\n';
+        output.textContent += 'Character codes: ' + Array.from(CONFIG.WORKER_URL.substring(0, 10)).map(c => c.charCodeAt(0)).join(', ');
+    </script>
+</body>
+</html>
