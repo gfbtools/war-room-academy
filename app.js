@@ -8,7 +8,7 @@
 
 const CONFIG = {
     // Replace with your actual Cloudflare Worker URL
-    WORKER_URL: 'war-room-academy-chat.smartselleraico.workers.dev',
+    WORKER_URL: 'https://war-room-academy-chat.smartselleraico.workers.dev',
     MIN_CHECKPOINT_LENGTH: 20,
     RATE_LIMIT_MESSAGE: 'Rate limit exceeded. Please try again in a few minutes.'
 };
