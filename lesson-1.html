@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Why AI Guesses - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 1: 25% Complete</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 25%"></div>
+                </div>
+
+                <h1>Lesson 1: Why AI Guesses (The Problem)</h1>
+
+                <p>AI generalizes by default.</p>
+
+                <p>When information is missing, vague, or implied, the system fills gaps using probability, not intent.</p>
+
+                <p>This produces output that: Sounds reasonable, Adapts smoothly, Feels cooperative</p>
+
+                <p>And quietly diverges from what you actually need.</p>
+
+                <p>Thin framing creates the illusion of collaboration while guaranteeing drift.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Try It Now</h2>
+                
+                <p class="exercise-instructions">Type this vague prompt in the chat below:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">Help me plan a project</span>
+                    <button class="copy-button" onclick="copyPrompt('Help me plan a project')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Enter your prompt here..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint</h2>
+                
+                <p class="checkpoint-question">What was missing from that prompt?</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Type your answer here (minimum 20 characters)..."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 20 characters minimum</div>
+                
+                <a href="lesson-2.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 2
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Lesson-specific initialization
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check access to this lesson
+            checkAccess(1);
+        });
+
+        // Handle send message
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        // Handle checkpoint input
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer);
+            
+            // Save when valid
+            if (isValid) {
+                saveCheckpoint(1, answer);
+            }
+        }
+
+        // Allow Enter to send (Shift+Enter for new line)
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
