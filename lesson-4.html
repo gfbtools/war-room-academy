@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4: Memory Stacking - War Room Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--background);
+            color: #1e293b;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem;
+            }
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+
+        .progress-indicator {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: #334155;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .prompt-box {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            position: relative;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .copy-button.copied {
+            background: var(--success);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            background: var(--secondary);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .ai-response {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .ai-response.loading {
+            display: block;
+        }
+
+        .ai-response.visible {
+            display: block;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(37, 99, 235, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+        }
+
+        .char-counter.valid {
+            color: var(--success);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .nav-button.back {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .nav-button.back:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-button.next {
+            background: var(--primary);
+            color: white;
+            position: relative;
+        }
+
+        .nav-button.next:hover:not(:disabled) {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .nav-button.next:disabled {
+            background: var(--secondary);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .nav-button.next:disabled:hover::after {
+            content: "Coming Soon - Module 2 launches March 2026";
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            background: #1e293b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning-box {
+            background: #fee2e2;
+            border-left: 4px solid var(--danger);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box strong {
+            color: #991b1b;
+        }
+
+        .stack-example {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Lesson 4: Memory Stacking</h1>
+            <p>AI doesn't remember—you document and re-inject</p>
+            <div class="progress-indicator">Module 1 • Lesson 4 of 4</div>
+        </div>
+
+        <div class="card">
+            <h2>AI Doesn't Remember, It Performs Continuity</h2>
+            <p>The AI has no memory between sessions. Each conversation starts from zero. When you think the AI "remembers" something, it's performing continuity—analyzing the visible conversation history and maintaining consistency. Once that conversation ends, everything is gone.</p>
+            
+            <p>War Room operators don't rely on the AI's context window. They document decisions and re-inject them when needed. This is Memory Stacking: the discipline of capturing what matters and feeding it back when it's operationally relevant.</p>
+
+            <h3>The Copy → Store → Re-inject Workflow</h3>
+            <p>Memory Stacking has three steps:</p>
+            
+            <ul>
+                <li><strong>Copy:</strong> When the AI generates a decision or framework you'll use again, copy it immediately. Don't trust you'll remember or find it later.</li>
+                <li><strong>Store:</strong> Save it in your one source of truth (Notes app, Notion, text file). Format it using the mandatory stack structure below.</li>
+                <li><strong>Re-inject:</strong> When you need that context again, paste the stack entry directly into your new prompt. The AI treats it as current input.</li>
+            </ul>
+
+            <h3>Mandatory Stack Format</h3>
+            <p>Every memory stack entry requires these 4 fields:</p>
+            
+            <div class="stack-example">
+<strong>Session:</strong> Customer Acquisition Strategy
+<strong>Date:</strong> 2026-02-12
+<strong>Decision:</strong> Focus on cold email to B2B SaaS CTOs, 50 outreach/week, test 3 subject line variants
+<strong>Usage:</strong> Re-inject when planning weekly outreach or reporting results
+            </div>
+
+            <ul>
+                <li><strong>Session:</strong> What problem you were solving (specific, not generic)</li>
+                <li><strong>Date:</strong> When the decision was made (decisions decay, dates prove freshness)</li>
+                <li><strong>Decision:</strong> What you're executing, not what you're considering (actions, not possibilities)</li>
+                <li><strong>Usage:</strong> When you'll need this again (triggers re-injection)</li>
+            </ul>
+
+            <h3>One Source of Truth Rule</h3>
+            <p>Memory stacks live in ONE place. Not scattered across chat logs, browser tabs, or "I'll remember this." One document. One system. When you need context, you go there. If it's not in your stack, it doesn't exist.</p>
+
+            <div class="warning-box">
+                <strong>War Room Rule:</strong> If you can't find it in 10 seconds, you never documented it. Memory Stacking is not optional. It's the operational difference between continuity and chaos.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Interactive Exercise</h2>
+            <p>Here's a prompt that re-injects a memory stack. Copy it and test how the AI uses previous context:</p>
+            
+            <div class="prompt-box" id="promptBox">CONTEXT FROM PREVIOUS SESSION:
+Session: Email Campaign Framework
+Date: 2026-02-10
+Decision: Send 50 cold emails/week to SaaS CTOs, A/B test subject lines, track reply rate
+Usage: Weekly campaign planning
+
+NEW REQUEST:
+I got 3 replies from 50 emails this week (6% reply rate). Two asked for pricing, one wanted a demo. Should I change my approach or scale what's working?</div>
+            <button class="copy-button" onclick="copyPrompt()">Copy Prompt</button>
+
+            <h3>Try It Yourself</h3>
+            <textarea id="chatInput" placeholder="Paste the prompt here or write your own with a stack entry..."></textarea>
+            <button onclick="sendToAI()">Send to AI</button>
+
+            <div id="aiResponse" class="ai-response"></div>
+        </div>
+
+        <div class="card">
+            <h2>Checkpoint</h2>
+            <p><strong>What from today's lesson must be remembered? Write your first memory stack entry about what you learned.</strong></p>
+            <p>Include all 4 fields: Session, Date, Decision, Usage. This is your first real stack entry—make it operational.</p>
+            
+            <textarea id="checkpointAnswer" placeholder="Example:
+Session: War Room Academy - Memory Stacking Training
+Date: 2026-02-12
+Decision: Use Copy → Store → Re-inject workflow for all AI decisions I'll need again, format with Session/Date/Decision/Usage
+Usage: Re-inject this process whenever starting a new project or onboarding team members to War Room"></textarea>
+            <div class="char-counter" id="charCounter">0 / 20 characters minimum</div>
+            <button id="continueBtn" onclick="completeLesson()" disabled>Continue to Lesson 5 →</button>
+        </div>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 1</a>
+            <button class="nav-button next" disabled title="Coming Soon - Module 2 launches March 2026">Continue to Module 2 →</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Check lesson access
+        checkAccess(4);
+
+        // Copy prompt functionality
+        function copyPrompt() {
+            const promptText = document.getElementById('promptBox').textContent;
+            navigator.clipboard.writeText(promptText);
+            
+            const button = document.querySelector('.copy-button');
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            
+            document.getElementById('chatInput').value = promptText;
+            
+            setTimeout(() => {
+                button.textContent = 'Copy Prompt';
+                button.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Send to AI functionality
+        async function sendToAI() {
+            const input = document.getElementById('chatInput').value.trim();
+            const responseDiv = document.getElementById('aiResponse');
+            
+            if (!input) {
+                alert('Please enter a prompt first');
+                return;
+            }
+
+            responseDiv.className = 'ai-response loading';
+            responseDiv.innerHTML = '<div class="loading-spinner"></div> AI is thinking...';
+
+            try {
+                const response = await fetch(CONFIG.WORKER_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: input
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    responseDiv.className = 'ai-response visible';
+                    responseDiv.innerHTML = `<strong>AI Response:</strong><br><br>${data.response}`;
+                } else {
+                    responseDiv.className = 'ai-response visible';
+                    responseDiv.innerHTML = `<strong>Error:</strong> ${data.error || 'Failed to get response'}`;
+                }
+            } catch (error) {
+                responseDiv.className = 'ai-response visible';
+                responseDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+            }
+        }
+
+        // Checkpoint validation
+        const checkpointAnswer = document.getElementById('checkpointAnswer');
+        const charCounter = document.getElementById('charCounter');
+        const continueBtn = document.getElementById('continueBtn');
+
+        checkpointAnswer.addEventListener('input', function() {
+            const length = this.value.trim().length;
+            charCounter.textContent = `${length} / 20 characters minimum`;
+            
+            if (length >= 20) {
+                charCounter.classList.add('valid');
+                continueBtn.disabled = false;
+            } else {
+                charCounter.classList.remove('valid');
+                continueBtn.disabled = true;
+            }
+        });
+
+        function completeLesson() {
+            const answer = checkpointAnswer.value.trim();
+            
+            if (answer.length >= 20) {
+                // Save answer to localStorage
+                const answers = JSON.parse(localStorage.getItem('warRoomAnswers') || '{}');
+                answers.lesson4 = answer;
+                localStorage.setItem('warRoomAnswers', JSON.stringify(answers));
+                
+                // Mark lesson complete
+                saveProgress(4);
+                
+                // Show completion message
+                alert('🎉 Module 1 Complete! You\'ve mastered the War Room Foundation. Module 2 launches March 2026.');
+                
+                // Redirect to module hub
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Load saved answer if exists
+        window.addEventListener('DOMContentLoaded', function() {
+            const answers = JSON.parse(localStorage.getItem('warRoomAnswers') || '{}');
+            if (answers.lesson4) {
+                checkpointAnswer.value = answers.lesson4;
+                checkpointAnswer.dispatchEvent(new Event('input'));
+            }
+        });
+    </script>
+</body>
+</html>
