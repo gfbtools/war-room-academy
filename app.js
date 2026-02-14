@@ -331,9 +331,24 @@ function validateCheckpoint(answer, minLength = CONFIG.MIN_CHECKPOINT_LENGTH) {
     }
     
     // Enable/disable continue button
-    const continueButton = document.querySelector('.cta-button');
+    // Target by ID first (more reliable), fall back to class
+    const continueButton = document.getElementById('continue-button') || 
+                           document.getElementById('continueBtn') ||
+                           document.querySelector('.cta-button:last-of-type');
     if (continueButton) {
-        continueButton.disabled = !isValid;
+        if (isValid) {
+            continueButton.removeAttribute('disabled');
+            continueButton.style.pointerEvents = 'auto';
+            continueButton.style.opacity = '1';
+            continueButton.style.backgroundColor = '#d32f2f';
+            continueButton.style.cursor = 'pointer';
+        } else {
+            continueButton.setAttribute('disabled', 'true');
+            continueButton.style.pointerEvents = 'none';
+            continueButton.style.opacity = '0.5';
+            continueButton.style.backgroundColor = '#333333';
+            continueButton.style.cursor = 'not-allowed';
+        }
     }
     
     return isValid;
