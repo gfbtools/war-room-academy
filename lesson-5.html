@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: Adversarial Stress Test - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 2: Lesson 5 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 31%"></div>
+                </div>
+
+                <h1>Module 2 · Lesson 5 – Adversarial Stress Test</h1>
+                <p class="hero-subtitle">Expose collapse before reality does.</p>
+
+                <h3>What Mode 3 Is For</h3>
+                <p>Mode 3 exists for one purpose: <strong>pre-failure detection</strong>.</p>
+                <p>Most plans fail not because they were bad ideas, but because they could not survive pressure. Optimism is the enemy of durability. If a plan cannot withstand attack from four specific angles, it will collapse when reality applies those same forces—but at higher cost.</p>
+                <p>Mode 3 forces that collapse early, when killing a plan is cheap.</p>
+
+                <h3>The Four Fixed Roles</h3>
+                <p>Every plan is tested by four adversarial roles. Each role represents a category of failure that occurs predictably under real conditions:</p>
+
+                <p><strong>DEX — Financial Reality</strong></p>
+                <ul>
+                    <li>Where does this lose money?</li>
+                    <li>What breaks first under budget pressure?</li>
+                    <li>What hidden costs will compound?</li>
+                </ul>
+
+                <p><strong>NOVA — Clarity & Exposure</strong></p>
+                <ul>
+                    <li>What is misunderstood by stakeholders?</li>
+                    <li>What fails when compressed to one sentence?</li>
+                    <li>What depends on unstated assumptions?</li>
+                </ul>
+
+                <p><strong>BLAKE — Risk & Failure</strong></p>
+                <ul>
+                    <li>What legal, platform, or reputational collapse could occur?</li>
+                    <li>What is the single-point failure?</li>
+                    <li>What happens if one critical dependency breaks?</li>
+                </ul>
+
+                <p><strong>GRACE — Operations</strong></p>
+                <ul>
+                    <li>Who actually maintains this?</li>
+                    <li>What breaks on a bad day?</li>
+                    <li>What requires sustained attention you don't have?</li>
+                </ul>
+
+                <h3>When to Deploy Mode 3</h3>
+                <p>Use adversarial stress testing:</p>
+                <ul>
+                    <li>Before committing to a plan or architecture</li>
+                    <li>Before scaling or public launch</li>
+                    <li>When confidence feels high (this is a danger signal)</li>
+                    <li>When previous attempts "felt right" but failed anyway</li>
+                </ul>
+                <p>If a plan survives attack, it may proceed. If it does not, you saved the cost of learning that lesson in reality.</p>
+
+                <h3>How to Run a Stress Test</h3>
+                <p><strong>Step 1:</strong> Frame the plan in one dense paragraph. If you cannot compress it, you are not ready.</p>
+                <p><strong>Step 2:</strong> Run each role separately (DEX → NOVA → BLAKE → GRACE). Do not blend them.</p>
+                <p><strong>Step 3:</strong> Capture objections that survive scrutiny. Discard weak critiques.</p>
+                <p><strong>Step 4:</strong> Kill or redesign plans that cannot withstand attack. No exceptions.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Copy this prompt and stress-test a real plan:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">I need to stress-test this plan:
+
+[Describe your project or decision in 5–8 sentences.]
+
+Run it through all four adversarial roles:
+
+- DEX (Financial Reality)
+- NOVA (Clarity Exposure)
+- BLAKE (Risk & Failure)
+- GRACE (Operations)
+
+For each role, give me ONE non-negotiable objection that would either kill the plan or force a major redesign. Be blunt and specific. No optimism.</span>
+                    <button class="copy-button" onclick="copyPrompt('I need to stress-test this plan:\n\n[Describe your project or decision in 5–8 sentences.]\n\nRun it through all four adversarial roles:\n\n- DEX (Financial Reality)\n- NOVA (Clarity Exposure)\n- BLAKE (Risk & Failure)\n- GRACE (Operations)\n\nFor each role, give me ONE non-negotiable objection that would either kill the plan or force a major redesign. Be blunt and specific. No optimism.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the prompt with your actual plan..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Describe your current biggest project or decision. Which adversarial role (DEX, NOVA, BLAKE, or GRACE) would most likely expose a flaw you are currently ignoring, and why that role?</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Be specific. Name the project and the role that would break it. Minimum 40 characters."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 40 characters minimum</div>
+                
+                <a href="lesson-6.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 6 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 2</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(5);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 40);
+            
+            if (isValid) {
+                saveCheckpoint(5, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

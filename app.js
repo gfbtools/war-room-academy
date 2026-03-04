@@ -26,8 +26,11 @@ function saveProgress(lessonNumber) {
         // Get existing progress or initialize
         let progress = getProgressData();
         
+        // Determine which module
+        const module = lessonNumber <= 4 ? 'module1' : 'module2';
+        
         // Mark lesson as complete
-        progress.module1[`lesson${lessonNumber}`] = true;
+        progress[module][`lesson${lessonNumber}`] = true;
         
         // Save to localStorage
         localStorage.setItem('warRoomProgress', JSON.stringify(progress));
@@ -87,6 +90,12 @@ function getProgressData() {
                 lesson2: false,
                 lesson3: false,
                 lesson4: false
+            },
+            module2: {
+                lesson5: false,
+                lesson6: false,
+                lesson7: false,
+                lesson8: false
             }
         };
         
@@ -98,6 +107,12 @@ function getProgressData() {
                 lesson2: false,
                 lesson3: false,
                 lesson4: false
+            },
+            module2: {
+                lesson5: false,
+                lesson6: false,
+                lesson7: false,
+                lesson8: false
             }
         };
     }
@@ -140,7 +155,8 @@ function checkAccess(lessonNumber) {
         
         // Check if previous lesson is completed
         const previousLesson = lessonNumber - 1;
-        const hasAccess = progress.module1[`lesson${previousLesson}`] === true;
+        const previousModule = previousLesson <= 4 ? 'module1' : 'module2';
+        const hasAccess = progress[previousModule][`lesson${previousLesson}`] === true;
         
         if (!hasAccess) {
             // Redirect to last completed lesson
@@ -164,8 +180,10 @@ function checkAccess(lessonNumber) {
 function getLastCompletedLesson() {
     const progress = getProgressData();
     
-    for (let i = 4; i >= 1; i--) {
-        if (progress.module1[`lesson${i}`] === true) {
+    // Check lessons 8 down to 1
+    for (let i = 8; i >= 1; i--) {
+        const module = i <= 4 ? 'module1' : 'module2';
+        if (progress[module][`lesson${i}`] === true) {
             return i;
         }
     }
@@ -228,24 +246,19 @@ async function sendToAI(prompt, responseElementId) {
     const responseElement = document.getElementById(responseElementId);
     const sendButton = document.querySelector('.send-button');
     
-    if (!prompt || !prompt.trim()) {
+    if (!prompt.trim()) {
         alert('Please enter a prompt');
         return;
     }
     
     try {
         // Show loading state
-        responseElement.textContent = 'Thinking...';
-        responseElement.classList.add('visible');
-        responseElement.style.display = 'block';
-        responseElement.style.opacity = '0.6';
-        if (sendButton) {
-            sendButton.disabled = true;
-            sendButton.textContent = 'Sending...';
-        }
+        responseElement.textContent = 'Thinking';
+        responseElement.classList.add('visible', 'loading');
+        sendButton.disabled = true;
+        sendButton.textContent = 'Sending...';
         
         // Call Cloudflare Worker
-        console.log('Sending to:', CONFIG.WORKER_URL);
         const response = await fetch(CONFIG.WORKER_URL, {
             method: 'POST',
             headers: {
@@ -257,50 +270,34 @@ async function sendToAI(prompt, responseElementId) {
             })
         });
         
-        console.log('Response status:', response.status);
-        
         if (!response.ok) {
             if (response.status === 429) {
                 throw new Error(CONFIG.RATE_LIMIT_MESSAGE);
             }
-            throw new Error('Failed to connect to AI (status ' + response.status + ')');
+            throw new Error('Failed to connect to AI');
         }
         
         const data = await response.json();
-        console.log('Response data:', data);
         
         // Display response
-        responseElement.style.opacity = '1';
         responseElement.classList.remove('loading');
-        
-        if (data.response) {
-            responseElement.textContent = data.response;
-        } else if (data.error) {
-            responseElement.textContent = 'Error: ' + data.error;
-        } else {
-            responseElement.textContent = 'Received empty response. Please try again.';
-            console.warn('Unexpected response format:', data);
-        }
+        responseElement.textContent = data.response;
         
         // Show checkpoint section
         const checkpointSection = document.querySelector('.checkpoint-section');
         if (checkpointSection) {
             setTimeout(() => {
-                checkpointSection.style.display = 'block';
                 checkpointSection.classList.add('visible');
             }, 300);
         }
         
     } catch (error) {
         console.error('AI request error:', error);
-        responseElement.style.opacity = '1';
         responseElement.classList.remove('loading');
-        responseElement.textContent = 'Error: ' + error.message + '. Refresh and try again.';
+        responseElement.textContent = 'Error connecting to AI. Refresh and try again.';
     } finally {
-        if (sendButton) {
-            sendButton.disabled = false;
-            sendButton.textContent = 'Send to AI';
-        }
+        sendButton.disabled = false;
+        sendButton.textContent = 'Send to AI';
     }
 }
 
@@ -331,24 +328,9 @@ function validateCheckpoint(answer, minLength = CONFIG.MIN_CHECKPOINT_LENGTH) {
     }
     
     // Enable/disable continue button
-    // Target by ID first (more reliable), fall back to class
-    const continueButton = document.getElementById('continue-button') || 
-                           document.getElementById('continueBtn') ||
-                           document.querySelector('.cta-button:last-of-type');
+    const continueButton = document.querySelector('.cta-button');
     if (continueButton) {
-        if (isValid) {
-            continueButton.removeAttribute('disabled');
-            continueButton.style.pointerEvents = 'auto';
-            continueButton.style.opacity = '1';
-            continueButton.style.backgroundColor = '#d32f2f';
-            continueButton.style.cursor = 'pointer';
-        } else {
-            continueButton.setAttribute('disabled', 'true');
-            continueButton.style.pointerEvents = 'none';
-            continueButton.style.opacity = '0.5';
-            continueButton.style.backgroundColor = '#333333';
-            continueButton.style.cursor = 'not-allowed';
-        }
+        continueButton.disabled = !isValid;
     }
     
     return isValid;

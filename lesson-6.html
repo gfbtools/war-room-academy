@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6: Ghost Protocol - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 2: Lesson 6 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 38%"></div>
+                </div>
+
+                <h1>Module 2 · Lesson 6 – Ghost Protocol</h1>
+                <p class="hero-subtitle">Prevent fantasy automation in modern AI systems.</p>
+
+                <h3>Autonomy vs Memory</h3>
+                <p>AI can act autonomously. It can run workflows, chain actions, and execute without supervision. This creates a convincing illusion: the system appears to "know" what it's doing across sessions.</p>
+                <p>That illusion is dangerous.</p>
+                <p><strong>Autonomy is execution. Continuity is not memory.</strong></p>
+                <p>Workflow chats stay coherent. Agents complete tasks. Long conversations feel stable. None of that is persistence. When a session ends or context shifts, intent dies unless you explicitly preserve it.</p>
+                <p>AI cannot protect alignment autonomously. Without explicit state handling, alignment decays quietly—while output remains fluent.</p>
+
+                <h3>The Four Human Interfaces</h3>
+                <p>Human presence is non-negotiable at four interfaces. Everything outside these can be automated. Everything inside them cannot:</p>
+
+                <p><strong>1. Framing</strong> — Defining reality, constraints, and scope</p>
+                <ul>
+                    <li>You set identity, boundaries, and format</li>
+                    <li>AI cannot infer stakes correctly</li>
+                </ul>
+
+                <p><strong>2. Memory Injection</strong> — Deciding what state is copied, stored, and re-introduced</p>
+                <ul>
+                    <li>You decide what persists</li>
+                    <li>You maintain the source of truth</li>
+                    <li>You re-inject only what's relevant</li>
+                </ul>
+
+                <p><strong>3. Stress Testing</strong> — Exposing fragility before execution compounds</p>
+                <ul>
+                    <li>You run adversarial roles</li>
+                    <li>You decide if a plan can proceed</li>
+                </ul>
+
+                <p><strong>4. Final Judgment</strong> — Deciding what ships, pauses, or dies</p>
+                <ul>
+                    <li>Reality decides if it worked</li>
+                    <li>You decide if it continues</li>
+                </ul>
+
+                <h3>The Boundary Question</h3>
+                <p>Ask one question about any workflow:</p>
+                <p><em>"What part of this workflow requires intentional memory handling?"</em></p>
+                <ul>
+                    <li>If the answer is <strong>"none"</strong> → imaginary system</li>
+                    <li>If the answer is <strong>"everything"</strong> → inefficient system</li>
+                </ul>
+                <p>Stable systems sit between those extremes.</p>
+
+                <h3>The Operator Rule</h3>
+                <p><strong>If it depends on the AI remembering, it is already broken.</strong></p>
+                <p>The fix is not more tools. The fix is not better prompts. The fix is explicit persistence:</p>
+                <ul>
+                    <li>Copy what matters</li>
+                    <li>Store it outside the AI</li>
+                    <li>Re-inject it deliberately</li>
+                </ul>
+                <p>That is how autonomy becomes reliable.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Map your workflow to identify memory boundaries:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">Here is my current workflow that uses AI:
+
+[List the steps in your workflow, including where AI is involved.]
+
+For each step:
+
+1. Mark it as one of:
+   - Fully automatable
+   - Requires human framing
+   - Requires human memory injection
+   - Requires human final judgment
+
+2. Identify any step where I am assuming the AI will 'remember' something across sessions or tools.
+
+3. Propose how to replace that assumption with explicit Copy → Store → Re-inject behavior.</span>
+                    <button class="copy-button" onclick="copyPrompt('Here is my current workflow that uses AI:\n\n[List the steps in your workflow, including where AI is involved.]\n\nFor each step:\n\n1. Mark it as one of:\n   - Fully automatable\n   - Requires human framing\n   - Requires human memory injection\n   - Requires human final judgment\n\n2. Identify any step where I am assuming the AI will \'remember\' something across sessions or tools.\n\n3. Propose how to replace that assumption with explicit Copy → Store → Re-inject behavior.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the prompt with your actual workflow..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Identify ONE real part of your current workflow that depends on the AI 'remembering' something across sessions. Explain exactly how you will replace that with explicit Copy → Store → Re-inject handling (where you store it, when you re-inject it, and into what).</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Be specific: what you're storing, where it goes, and how you'll re-inject it. Minimum 50 characters."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 50 characters minimum</div>
+                
+                <a href="lesson-7.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 7 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 2</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(6);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 50);
+            
+            if (isValid) {
+                saveCheckpoint(6, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

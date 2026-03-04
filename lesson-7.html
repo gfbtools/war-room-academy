@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 7: Temporal Hierarchy - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 2: Lesson 7 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 44%"></div>
+                </div>
+
+                <h1>Module 2 · Lesson 7 – Temporal Hierarchy</h1>
+                <p class="hero-subtitle">Prevent mis-timed execution.</p>
+
+                <h3>Time-Reality Misalignment</h3>
+                <p>AI collapses time unless told otherwise.</p>
+                <p>When you ask for help on a problem, AI does not know if you need:</p>
+                <ul>
+                    <li>What to do in the next hour</li>
+                    <li>A roadmap for the next quarter</li>
+                    <li>A five-year vision</li>
+                </ul>
+                <p>It guesses. And when it guesses wrong, you get correct answers at the wrong time—which still fail.</p>
+                <p>Common failure: You need today's next step, but AI gives you a long-term roadmap. Or you need structural change, but AI gives you quick hacks.</p>
+                <p><strong>Correct answers at the wrong time still fail.</strong></p>
+
+                <h3>The Five Time Layers</h3>
+                <p>Every task, decision, or workstream belongs to one of five time layers:</p>
+
+                <p><strong>TODAY</strong></p>
+                <ul>
+                    <li>What must happen in the next few hours</li>
+                    <li>Immediate execution only</li>
+                    <li>No planning, no roadmaps</li>
+                </ul>
+
+                <p><strong>THIS WEEK</strong></p>
+                <ul>
+                    <li>What can be completed in 7 days</li>
+                    <li>Small, contained deliverables</li>
+                </ul>
+
+                <p><strong>THIS MONTH</strong></p>
+                <ul>
+                    <li>Work that requires sustained effort over weeks</li>
+                    <li>May involve dependencies</li>
+                </ul>
+
+                <p><strong>THIS QUARTER</strong></p>
+                <ul>
+                    <li>Strategic initiatives with measurable outcomes</li>
+                    <li>Requires planning and checkpoints</li>
+                </ul>
+
+                <p><strong>PARKING LOT</strong></p>
+                <ul>
+                    <li>Ideas without a committed time horizon</li>
+                    <li>Not urgent, not scheduled</li>
+                    <li>May never happen—and that's fine</li>
+                </ul>
+
+                <h3>Discipline Rules</h3>
+                <p>To use Temporal Hierarchy effectively:</p>
+                <ul>
+                    <li><strong>Always specify the active time layer in your prompt.</strong> Do not make AI guess.</li>
+                    <li><strong>Do not mix layers in one session.</strong> "Today" plus "5-year plan" creates contradiction.</li>
+                    <li><strong>Use Parking Lot for ideas without a committed time horizon.</strong> This prevents them from contaminating active layers.</li>
+                    <li><strong>Move items intentionally between layers.</strong> Never let AI decide the layer silently.</li>
+                </ul>
+
+                <h3>Warning Signals</h3>
+                <p>You are operating in the wrong time layer if:</p>
+                <ul>
+                    <li>AI offers "vision" when you asked for implementation</li>
+                    <li>You feel impressed but nothing moves this week</li>
+                    <li>You keep revisiting the same roadmap without executing</li>
+                    <li>Tasks feel too big for TODAY but too urgent for THIS QUARTER</li>
+                </ul>
+                <p>When this happens, stop and re-sort.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Sort your workload by time layer:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">Here are my current tasks and projects:
+
+[List 5–15 tasks or workstreams.]
+
+1. Sort each item into one of these layers: TODAY, THIS WEEK, THIS MONTH, THIS QUARTER, PARKING LOT.
+
+2. Flag any items that appear to be in the wrong layer (too big for TODAY, too urgent for THIS QUARTER, etc.).
+
+3. For each mis-layered item, tell me:
+   - The correct layer
+   - What I should actually do with it in the next 7 days.</span>
+                    <button class="copy-button" onclick="copyPrompt('Here are my current tasks and projects:\n\n[List 5–15 tasks or workstreams.]\n\n1. Sort each item into one of these layers: TODAY, THIS WEEK, THIS MONTH, THIS QUARTER, PARKING LOT.\n\n2. Flag any items that appear to be in the wrong layer (too big for TODAY, too urgent for THIS QUARTER, etc.).\n\n3. For each mis-layered item, tell me:\n   - The correct layer\n   - What I should actually do with it in the next 7 days.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the prompt with your actual tasks..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Write down three tasks you are actually working on. Assign each to a time layer (Today, This Week, This Month, This Quarter, Parking Lot). Name ONE task that is currently in the wrong layer and what you will change this week to fix that.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="List 3 tasks with their layers. Then identify 1 mis-layered task and your fix. Minimum 40 characters."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 40 characters minimum</div>
+                
+                <a href="lesson-8.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 8 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 2</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(7);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 40);
+            
+            if (isValid) {
+                saveCheckpoint(7, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
