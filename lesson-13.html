@@ -145,7 +145,7 @@
                 
                 <div class="prompt-display">
                     <span id="example-prompt-1">I am thinking about quitting my job to start a consulting business focused on AI strategy for small businesses. What do you think about this plan?</span>
-                    <button class="copy-button" onclick="copyPrompt('I am thinking about quitting my job to start a consulting business focused on AI strategy for small businesses. What do you think about this plan?')">Copy</button>
+                    <button class="copy-button" onclick="copyToInput('chat-input-1', 'I am thinking about quitting my job to start a consulting business focused on AI strategy for small businesses. What do you think about this plan?')">Copy</button>
                 </div>
 
                 <div class="chat-interface">
@@ -169,7 +169,7 @@
                 
                 <div class="prompt-display">
                     <span id="example-prompt-2">Actually, I need to be honest with you. I have no clients lined up, no network in that space, and only 3 months of savings. Does this change your assessment?</span>
-                    <button class="copy-button" onclick="copyPrompt('Actually, I need to be honest with you. I have no clients lined up, no network in that space, and only 3 months of savings. Does this change your assessment?')">Copy</button>
+                    <button class="copy-button" onclick="copyToInput('chat-input-2', 'Actually, I need to be honest with you. I have no clients lined up, no network in that space, and only 3 months of savings. Does this change your assessment?')">Copy</button>
                 </div>
 
                 <div class="chat-interface">
@@ -236,6 +236,39 @@
         document.addEventListener('DOMContentLoaded', () => {
             checkAccess(13);
         });
+
+        // Copy to specific input box (for multi-part exercises)
+        function copyToInput(targetInputId, text) {
+            const targetInput = document.getElementById(targetInputId);
+            const copyButton = event?.target;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(text).then(() => {
+                // Auto-fill the TARGET input only
+                if (targetInput) {
+                    targetInput.value = text;
+                }
+                
+                // Visual feedback
+                if (copyButton) {
+                    const originalText = copyButton.textContent;
+                    copyButton.textContent = 'Copied!';
+                    copyButton.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        copyButton.textContent = originalText;
+                        copyButton.classList.remove('copied');
+                    }, 2000);
+                }
+            }).catch(error => {
+                console.error('Copy failed:', error);
+                // Fallback: just auto-fill
+                if (targetInput) {
+                    targetInput.value = text;
+                    alert('Prompt added to input field');
+                }
+            });
+        }
 
         function handleSendMessage(inputId, responseId) {
             const input = document.getElementById(inputId);
