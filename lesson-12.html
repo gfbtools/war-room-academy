@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 12: Building a Real Memory Stack - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 3: Lesson 12 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 75%"></div>
+                </div>
+
+                <h1>Module 3 · Lesson 12 – Building a Real Memory Stack</h1>
+                <p class="hero-subtitle">One source of truth, maintained under pressure</p>
+
+                <h3>The One Source of Truth Rule</h3>
+                <p>Memory stacks fail when fragmented. If your decisions live in:</p>
+                <ul>
+                    <li>Multiple docs across different tools</li>
+                    <li>"The latest chat history"</li>
+                    <li>Email threads and Slack messages</li>
+                    <li>Your head ("I'll remember this")</li>
+                </ul>
+                <p>Then you do not have a memory stack. You have chaos.</p>
+                <p><strong>One source of truth.</strong> One document. One system. When you need context, you go there. If it's not in your stack, it does not exist.</p>
+
+                <h3>Stack Format (Mandatory)</h3>
+                <p>Every entry in your memory stack must include all four fields:</p>
+
+                <p><strong>Session:</strong> What problem you were solving (specific, not generic)<br>
+                <strong>Date:</strong> When the decision was made<br>
+                <strong>Decision:</strong> What you're executing, not considering (actions, not possibilities)<br>
+                <strong>Usage:</strong> When you'll need this again (triggers re-injection)</p>
+
+                <p><strong>Example Stack Entry:</strong></p>
+                <p>
+                Session: Customer Acquisition Strategy - Cold Email<br>
+                Date: 2026-03-08<br>
+                Decision: Send 50 cold emails/week to SaaS CTOs using 3-line format (problem/solution/CTA), A/B test subject lines, track reply rate in spreadsheet, minimum 6% reply rate to continue<br>
+                Usage: Re-inject every Monday when planning weekly outreach; re-inject when reporting results to stakeholders
+                </p>
+
+                <h3>What Earns Storage</h3>
+                <p>Do NOT store:</p>
+                <ul>
+                    <li>Drafts or explorations</li>
+                    <li>Ideas you're "considering"</li>
+                    <li>Speculation or possibilities</li>
+                    <li>AI output you haven't acted on</li>
+                </ul>
+
+                <p>ONLY store:</p>
+                <ul>
+                    <li>Final decisions</li>
+                    <li>Hard rules and constraints</li>
+                    <li>Non-negotiables proven by execution</li>
+                    <li>Lessons from real failures</li>
+                </ul>
+
+                <p>Memory is not a scrapbook. It's a control system.</p>
+
+                <h3>Maintenance Routine</h3>
+                <p>Memory stacks decay without active maintenance:</p>
+
+                <p><strong>Weekly Review (5-10 minutes):</strong></p>
+                <ul>
+                    <li>Add new stack entries from this week's sessions</li>
+                    <li>Mark entries that were actually used this week</li>
+                    <li>Flag entries that might be stale</li>
+                </ul>
+
+                <p><strong>Monthly Pruning (15-20 minutes):</strong></p>
+                <ul>
+                    <li>Remove entries that haven't been used in 60 days</li>
+                    <li>Update entries where decisions changed</li>
+                    <li>Consolidate redundant entries</li>
+                </ul>
+
+                <p><strong>Quarterly Reset (30-45 minutes):</strong></p>
+                <ul>
+                    <li>Archive entire stack with date</li>
+                    <li>Rebuild from scratch with only actively-used entries</li>
+                    <li>This prevents stack bloat and forces verification</li>
+                </ul>
+
+                <h3>The 10-Second Test</h3>
+                <p>If you can't find a decision in your stack within 10 seconds, you never documented it properly. Your stack should be:</p>
+                <ul>
+                    <li>Searchable (Cmd+F or Ctrl+F works instantly)</li>
+                    <li>Chronologically organized (newest first)</li>
+                    <li>Clearly labeled with session names that match how you think about problems</li>
+                </ul>
+
+                <h3>Common Failure Modes</h3>
+                <p><strong>"I'll start documenting next week"</strong> — No. Start now or accept drift.</p>
+                <p><strong>"I'll remember this one"</strong> — You won't. Document or lose it.</p>
+                <p><strong>"This decision is too small to document"</strong> — If it matters enough to decide, it matters enough to record.</p>
+                <p><strong>"My stack is getting too long"</strong> — Prune it. Quarterly reset exists for this reason.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Convert past sessions into proper stack entries:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">I will describe 3-5 past AI sessions or decisions. For each one, format a proper memory stack entry using the mandatory 4 fields.
+
+Past sessions:
+1. [Describe a real session where you used AI and made a decision]
+2. [Another session]
+3. [Another session]
+
+For each, create:
+Session: [specific problem name]
+Date: [when it happened]
+Decision: [what you're executing, not considering]
+Usage: [when you'll re-inject this]
+
+Make the session names searchable and the usage triggers clear.</span>
+                    <button class="copy-button" onclick="copyPrompt('I will describe 3-5 past AI sessions or decisions. For each one, format a proper memory stack entry using the mandatory 4 fields.\n\nPast sessions:\n1. [Describe a real session where you used AI and made a decision]\n2. [Another session]\n3. [Another session]\n\nFor each, create:\nSession: [specific problem name]\nDate: [when it happened]\nDecision: [what you\'re executing, not considering]\nUsage: [when you\'ll re-inject this]\n\nMake the session names searchable and the usage triggers clear.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the prompt and describe your real past sessions..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Either (A) paste 3-5 formatted stack entries from your real work using the mandatory 4-field format, OR (B) describe your memory stack system: where it lives (specific tool/file), what format you're using, and your maintenance schedule (weekly/monthly/quarterly routine). Be specific and operational, not theoretical.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Option A: Paste stack entries here.
+
+OR
+
+Option B: My memory stack lives in [specific location]. Format: [4-field structure as specified]. Maintenance: Weekly [what you do], Monthly [what you do], Quarterly [what you do]."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 150 characters minimum</div>
+                
+                <a href="index.html" class="cta-button" id="continue-button" disabled>
+                    Complete Module 3 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 3</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(12);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 150);
+            
+            if (isValid) {
+                saveCheckpoint(12, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

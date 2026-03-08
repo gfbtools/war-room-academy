@@ -27,7 +27,16 @@ function saveProgress(lessonNumber) {
         let progress = getProgressData();
         
         // Determine which module
-        const module = lessonNumber <= 4 ? 'module1' : 'module2';
+        let module;
+        if (lessonNumber <= 4) {
+            module = 'module1';
+        } else if (lessonNumber <= 8) {
+            module = 'module2';
+        } else if (lessonNumber <= 12) {
+            module = 'module3';
+        } else {
+            module = 'module4';
+        }
         
         // Mark lesson as complete
         progress[module][`lesson${lessonNumber}`] = true;
@@ -96,6 +105,12 @@ function getProgressData() {
                 lesson6: false,
                 lesson7: false,
                 lesson8: false
+            },
+            module3: {
+                lesson9: false,
+                lesson10: false,
+                lesson11: false,
+                lesson12: false
             }
         };
         
@@ -113,6 +128,12 @@ function getProgressData() {
                 lesson6: false,
                 lesson7: false,
                 lesson8: false
+            },
+            module3: {
+                lesson9: false,
+                lesson10: false,
+                lesson11: false,
+                lesson12: false
             }
         };
     }
@@ -155,7 +176,17 @@ function checkAccess(lessonNumber) {
         
         // Check if previous lesson is completed
         const previousLesson = lessonNumber - 1;
-        const previousModule = previousLesson <= 4 ? 'module1' : 'module2';
+        let previousModule;
+        if (previousLesson <= 4) {
+            previousModule = 'module1';
+        } else if (previousLesson <= 8) {
+            previousModule = 'module2';
+        } else if (previousLesson <= 12) {
+            previousModule = 'module3';
+        } else {
+            previousModule = 'module4';
+        }
+        
         const hasAccess = progress[previousModule][`lesson${previousLesson}`] === true;
         
         if (!hasAccess) {
@@ -180,9 +211,17 @@ function checkAccess(lessonNumber) {
 function getLastCompletedLesson() {
     const progress = getProgressData();
     
-    // Check lessons 8 down to 1
-    for (let i = 8; i >= 1; i--) {
-        const module = i <= 4 ? 'module1' : 'module2';
+    // Check lessons 12 down to 1
+    for (let i = 12; i >= 1; i--) {
+        let module;
+        if (i <= 4) {
+            module = 'module1';
+        } else if (i <= 8) {
+            module = 'module2';
+        } else {
+            module = 'module3';
+        }
+        
         if (progress[module][`lesson${i}`] === true) {
             return i;
         }
@@ -370,8 +409,8 @@ function saveCheckpoint(lessonNumber, answer) {
  * @param {string} text - Text to copy
  */
 function copyPrompt(text) {
-    const chatInput = document.querySelector('.chat-input-area');
-    const copyButton = document.querySelector('.copy-button');
+    const chatInput = document.getElementById('chat-input');
+    const copyButton = event?.target || document.querySelector('.copy-button');
     
     // Copy to clipboard
     navigator.clipboard.writeText(text).then(() => {

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11: Detecting Expertise Simulation - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 3: Lesson 11 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 69%"></div>
+                </div>
+
+                <h1>Module 3 · Lesson 11 – Detecting Expertise Simulation</h1>
+                <p class="hero-subtitle">When AI sounds expert but is not</p>
+
+                <h3>The Surface Fluency Problem</h3>
+                <p>AI produces well-structured, grammatically correct, confidently stated outputs that mimic the surface characteristics of expertise. This creates a powerful illusion: fluency feels like intelligence, and confidence feels like correctness.</p>
+                <p>But simulation is not expertise. AI can blend incompatible frameworks, provide detailed answers built on wrong assumptions, and give solutions before understanding the problem—all while sounding authoritative.</p>
+
+                <h3>Signs of Expertise Simulation</h3>
+                <p>Research on expert vs. novice detection reveals specific indicators that AI is simulating rather than performing expertise:</p>
+
+                <p><strong>1. Framework Blending Without Integration</strong></p>
+                <ul>
+                    <li>AI draws from multiple theoretical approaches without recognizing they conflict</li>
+                    <li>Example: Mixing behavioral and psychodynamic therapy techniques that rest on incompatible assumptions about human behavior</li>
+                    <li>Real experts maintain competing frameworks separately and choose between them deliberately</li>
+                </ul>
+
+                <p><strong>2. Forward-Reasoning Failure (Answers Before Diagnostics)</strong></p>
+                <ul>
+                    <li>AI jumps to solutions without adequate problem diagnosis</li>
+                    <li>Genuine expertise proceeds from principles to solutions; simulation works backward from goals</li>
+                    <li>Example: Recommending a marketing strategy before asking about target audience, budget, or current performance</li>
+                </ul>
+
+                <p><strong>3. Mis-Chunking of Domain Knowledge</strong></p>
+                <ul>
+                    <li>AI organizes information in ways that violate domain-specific patterns</li>
+                    <li>Experts perceive meaningful chunks (e.g., legal precedents grouped by underlying principle); AI may group by surface similarity</li>
+                    <li>Detection requires domain knowledge to recognize the violation</li>
+                </ul>
+
+                <p><strong>4. Premature Solutions</strong></p>
+                <ul>
+                    <li>AI provides detailed implementation before establishing whether the approach is sound</li>
+                    <li>Experts emphasize thorough problem understanding; simulation optimizes for appearing helpful</li>
+                </ul>
+
+                <p><strong>5. Multi-Turn Inconsistency</strong></p>
+                <ul>
+                    <li>Across extended conversation, AI may contradict earlier statements or shift positions without acknowledgment</li>
+                    <li>Genuine expertise maintains internal consistency; simulation optimizes per-turn plausibility</li>
+                </ul>
+
+                <h3>Expert vs. Novice Detection Ability</h3>
+                <p>Research shows <strong>domain experts detect simulation more reliably than novices or even technical AI experts.</strong></p>
+
+                <p><strong>Experts can:</strong></p>
+                <ul>
+                    <li>Recognize when AI blends incompatible frameworks</li>
+                    <li>Detect violations in domain-specific knowledge organization</li>
+                    <li>Spot forward-reasoning failures and premature solutions</li>
+                    <li>Maintain dual-track assessment (content + process validity)</li>
+                </ul>
+
+                <p><strong>Novices struggle because:</strong></p>
+                <ul>
+                    <li>They cannot distinguish surface fluency from substantive expertise</li>
+                    <li>They anchor on AI's initial confident output and fail to question assumptions</li>
+                    <li>They copy AI instructions without independent verification</li>
+                    <li>They lack the domain knowledge needed to recognize violations</li>
+                </ul>
+
+                <h3>The Detection Rule</h3>
+                <p>If you are not an expert in the domain, you cannot reliably detect expertise simulation. This means: <strong>do not use AI for domains where you lack expertise to verify the output.</strong></p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Practice detecting simulation indicators:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">I will describe a scenario where AI provided advice. Analyze it for signs of expertise simulation.
+
+Scenario: I asked an AI how to fix slow database queries in my web app. It immediately recommended:
+- Add indexes on all foreign keys
+- Implement Redis caching layer
+- Upgrade to a larger database instance
+- Denormalize frequently-joined tables
+- Use database connection pooling
+
+It provided detailed implementation steps for each, including code examples.
+
+Identify:
+1. Which simulation indicators are present (framework blending, forward-reasoning failure, premature solutions, etc.)
+2. What questions a genuine expert would ask BEFORE recommending solutions
+3. What I should have required before trusting this advice</span>
+                    <button class="copy-button" onclick="copyPrompt('I will describe a scenario where AI provided advice. Analyze it for signs of expertise simulation.\n\nScenario: I asked an AI how to fix slow database queries in my web app. It immediately recommended:\n- Add indexes on all foreign keys\n- Implement Redis caching layer\n- Upgrade to a larger database instance\n- Denormalize frequently-joined tables\n- Use database connection pooling\n\nIt provided detailed implementation steps for each, including code examples.\n\nIdentify:\n1. Which simulation indicators are present (framework blending, forward-reasoning failure, premature solutions, etc.)\n2. What questions a genuine expert would ask BEFORE recommending solutions\n3. What I should have required before trusting this advice')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the scenario or describe your own case where AI sounded expert..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Describe a REAL past instance where AI sounded like an expert but was wrong (or you later realized it might be wrong). Name at least one simulation indicator that should have tipped you off (framework blending, forward-reasoning failure, premature solutions, multi-turn inconsistency, mis-chunking). Be specific about what you trusted and why it was a mistake.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Example: I asked AI about [topic]. It gave [answer] which sounded expert because [reason]. Later I discovered [problem]. The simulation indicator I missed: [specific indicator]. What should have tipped me off: [what I should have noticed]."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 100 characters minimum</div>
+                
+                <a href="lesson-12.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 12 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 3</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(11);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 100);
+            
+            if (isValid) {
+                saveCheckpoint(11, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

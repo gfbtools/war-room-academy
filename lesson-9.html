@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: High-Stakes Decision Making - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 3: Lesson 9 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 56%"></div>
+                </div>
+
+                <h1>Module 3 · Lesson 9 – High-Stakes Decision Making</h1>
+                <p class="hero-subtitle">Where AI must not be used alone</p>
+
+                <h3>The Knowing-Doing Gap</h3>
+                <p>A global survey of 32,000+ workers revealed a stark finding: <strong>66% of workers rely on AI output without any form of evaluation or verification.</strong></p>
+                <p>More troubling: <strong>56% of AI users acknowledge making mistakes in their work due to unverified AI assistance.</strong></p>
+                <p>This is the knowing-doing gap: awareness of risk does not translate into verification behavior. People know AI can be wrong. They use it anyway without checking.</p>
+
+                <h3>Risk Stratification Framework</h3>
+                <p>Not all uses of AI carry the same risk. The War Room framework divides tasks into three categories:</p>
+
+                <p><strong>RED ZONE — Do Not Use AI Alone</strong></p>
+                <ul>
+                    <li>Legal advice or contract review</li>
+                    <li>Medical diagnosis or treatment decisions</li>
+                    <li>High-stakes financial planning or investment decisions</li>
+                    <li>Safety-critical engineering or infrastructure</li>
+                    <li>Any decision where being wrong has legal, medical, or financial consequences</li>
+                </ul>
+                <p>In these domains, AI can assist research, but a qualified human expert must verify and take responsibility.</p>
+
+                <p><strong>YELLOW ZONE — Verification Required</strong></p>
+                <ul>
+                    <li>Business strategy and planning</li>
+                    <li>Customer-facing communications</li>
+                    <li>Code that will be deployed to production</li>
+                    <li>Content published under your name</li>
+                    <li>Recommendations you will pass to others</li>
+                </ul>
+                <p>AI can generate options, but you must verify accuracy, check assumptions, and test outputs before acting.</p>
+
+                <p><strong>GREEN ZONE — Low-Risk Experimentation</strong></p>
+                <ul>
+                    <li>Brainstorming and idea generation</li>
+                    <li>First drafts for internal use only</li>
+                    <li>Learning new concepts (with cross-checking)</li>
+                    <li>Formatting and restructuring existing content</li>
+                </ul>
+                <p>Mistakes are cheap and easily corrected. Still requires judgment, but failure is not expensive.</p>
+
+                <h3>Real Case Examples</h3>
+                <p><strong>Legal:</strong> A chatbot advised a user to file a lawsuit without understanding jurisdiction or statute of limitations. The user followed the advice and missed critical deadlines.</p>
+                <p><strong>Financial:</strong> An AI recommended a tax strategy that violated IRS rules. The user implemented it and faced penalties and an audit.</p>
+                <p><strong>Medical:</strong> Users report chatbots giving confident but wrong medical advice, including dangerous drug interactions and misdiagnosis of serious conditions.</p>
+
+                <h3>The Rule</h3>
+                <p>If you cannot verify the output yourself OR you are not qualified to take responsibility for being wrong, do not use AI for that decision.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Practice risk classification on a hypothetical scenario:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">Here is a scenario:
+
+I'm a freelance marketing consultant. A client wants advice on whether to pivot their SaaS product to target enterprise customers instead of SMBs. This would require a 6-month development cycle and $200K investment. They want me to provide a strategic recommendation by Friday.
+
+For this scenario:
+1. Classify the risk level (Red/Yellow/Green)
+2. List what I MUST verify before giving advice
+3. Define where AI can help and where it cannot
+4. State who holds final accountability
+
+Be specific about verification steps.</span>
+                    <button class="copy-button" onclick="copyPrompt('Here is a scenario:\n\nI\'m a freelance marketing consultant. A client wants advice on whether to pivot their SaaS product to target enterprise customers instead of SMBs. This would require a 6-month development cycle and $200K investment. They want me to provide a strategic recommendation by Friday.\n\nFor this scenario:\n1. Classify the risk level (Red/Yellow/Green)\n2. List what I MUST verify before giving advice\n3. Define where AI can help and where it cannot\n4. State who holds final accountability\n\nBe specific about verification steps.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the scenario or write your own high-stakes decision..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Identify YOUR current highest-stakes decision (real work, not hypothetical). Classify it as Red/Yellow/Green. State whether and how AI should be involved, what you must verify, and who holds final accountability. Be brutally honest about whether you are currently over-delegating to AI.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Example: My highest-stakes decision is [describe it]. Risk level: [Red/Yellow/Green]. AI role: [what it can/cannot do]. Verification: [specific steps]. Accountability: [who is responsible]. Current over-delegation: [yes/no and explain]."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 100 characters minimum</div>
+                
+                <a href="lesson-10.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 10 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 3</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(9);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 100);
+            
+            if (isValid) {
+                saveCheckpoint(9, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

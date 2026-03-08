@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10: Professional Use & Ethics - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 3: Lesson 10 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 63%"></div>
+                </div>
+
+                <h1>Module 3 · Lesson 10 – Professional Use & Ethics</h1>
+                <p class="hero-subtitle">Disclosure, accountability, and organizational policy</p>
+
+                <h3>Professional Risk Patterns</h3>
+                <p>Certain professions carry heightened risk when using AI because mistakes have legal, financial, or safety consequences:</p>
+
+                <p><strong>Consultants & Advisors</strong></p>
+                <ul>
+                    <li>Risk: Clients pay for your judgment, not AI-generated recommendations</li>
+                    <li>Failure mode: Passing off AI analysis as expert insight without verification</li>
+                    <li>Accountability gap: Who is liable when AI-assisted advice causes client losses?</li>
+                </ul>
+
+                <p><strong>Lawyers & Legal Professionals</strong></p>
+                <ul>
+                    <li>Risk: Legal advice must be accurate; errors cause missed deadlines, lost cases, malpractice claims</li>
+                    <li>Failure mode: Using AI for case law research without verifying citations exist and are relevant</li>
+                    <li>Documented cases: Lawyers sanctioned for submitting AI-generated briefs with fake case citations</li>
+                </ul>
+
+                <p><strong>Financial Advisors</strong></p>
+                <ul>
+                    <li>Risk: Investment and tax advice errors result in financial loss and regulatory penalties</li>
+                    <li>Failure mode: AI recommends strategies that violate regulations or client-specific constraints</li>
+                    <li>Fiduciary duty: Cannot delegate responsibility to AI systems</li>
+                </ul>
+
+                <p><strong>Medical & Healthcare Professionals</strong></p>
+                <ul>
+                    <li>Risk: Diagnostic and treatment errors cause patient harm</li>
+                    <li>Failure mode: Trusting AI symptom checkers or drug interaction databases without clinical verification</li>
+                    <li>Standard of care: AI cannot replace clinical judgment</li>
+                </ul>
+
+                <h3>Disclosure Templates</h3>
+                <p>If you use AI in professional work, you must be willing to disclose:</p>
+
+                <p><strong>Template 1 — Internal Documentation</strong><br>
+                "AI was used to [specific task]. Output was verified by [method]. Final decision made by [name/role]. Accountability rests with [name/role]."</p>
+
+                <p><strong>Template 2 — Client/Stakeholder Disclosure</strong><br>
+                "This analysis used AI assistance for [research/drafting/data processing]. All findings were independently verified against [sources]. Final recommendations are based on my professional judgment and I take full responsibility for accuracy."</p>
+
+                <p><strong>Template 3 — When You Cannot Verify</strong><br>
+                "I cannot verify this independently, so I will not use AI for this decision."</p>
+
+                <h3>Organizational AI Policy Components</h3>
+                <p>If you manage a team or run a business, your AI policy must define:</p>
+
+                <ul>
+                    <li><strong>Who can use AI:</strong> Roles, seniority levels, training requirements</li>
+                    <li><strong>Approved tasks:</strong> Specific use cases where AI is permitted (e.g., drafting internal docs) vs. prohibited (e.g., client-facing legal advice)</li>
+                    <li><strong>Required documentation:</strong> What must be recorded (task, verification steps, final decision-maker)</li>
+                    <li><strong>Review cadence:</strong> How often AI-assisted work is audited</li>
+                    <li><strong>Accountability assignment:</strong> Who is responsible when AI-assisted work fails</li>
+                </ul>
+
+                <h3>The Prime Directive Reminder</h3>
+                <p>AI generates. You execute. You document. Reality decides.</p>
+                <p>In professional contexts, "you execute" means you verify, you take responsibility, and you face the consequences when it's wrong. If you're not willing to do that, don't use AI for the task.</p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Draft an AI usage statement for your real role or business:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">I am a [your role]. My work involves [brief description of what you do].
+
+Help me draft:
+
+1. An AI Usage and Verification Statement that I would be willing to show a client or stakeholder
+2. A 1-paragraph internal policy defining:
+   - Which tasks I can/cannot use AI for
+   - What verification is required
+   - Who holds final accountability
+
+Be specific about my actual work, not generic guidelines.</span>
+                    <button class="copy-button" onclick="copyPrompt('I am a [your role]. My work involves [brief description of what you do].\n\nHelp me draft:\n\n1. An AI Usage and Verification Statement that I would be willing to show a client or stakeholder\n2. A 1-paragraph internal policy defining:\n   - Which tasks I can/cannot use AI for\n   - What verification is required\n   - Who holds final accountability\n\nBe specific about my actual work, not generic guidelines.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the prompt with your actual role and work description..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Identify where you are currently over-delegating to AI in your professional work. Write a disclosure statement you would be willing to show a client, boss, or stakeholder that honestly describes: (1) what AI does, (2) what you verify, (3) who is accountable. If you're not willing to show this disclosure, you are over-delegating.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Example: I currently use AI to [task]. Disclosure I would show: 'AI assists with [specific task]. I verify by [method]. I am accountable for [outcome].' Over-delegation check: [Yes/No - if yes, what will you stop doing or start verifying?]"
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 80 characters minimum</div>
+                
+                <a href="lesson-11.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 11 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 3</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(10);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 80);
+            
+            if (isValid) {
+                saveCheckpoint(10, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
