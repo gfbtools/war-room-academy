@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 13: Community Documentation - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 4: Lesson 13 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 81%"></div>
+                </div>
+
+                <h1>Module 4 · Lesson 13 – Community Documentation & Reddit Field Work</h1>
+                <p class="hero-subtitle">Observation mode, not promotion</p>
+
+                <h3>The Daily Routine (10-15 Minutes Max)</h3>
+                <p>Field operators do not promote. They observe, document, and intervene sparingly when failure modes are visible.</p>
+
+                <p><strong>What you do daily:</strong></p>
+                <ul>
+                    <li>Lurk comment threads where someone is already frustrated</li>
+                    <li>Read for language, not topics</li>
+                    <li>Exit threads that turn into advice dogpiles</li>
+                </ul>
+
+                <p><strong>What you do weekly:</strong></p>
+                <ul>
+                    <li>Drop 0-2 links total (not per day, per week)</li>
+                    <li>Never more than one per thread</li>
+                    <li>Never in top-level posts</li>
+                </ul>
+
+                <p><strong>What you never do:</strong></p>
+                <ul>
+                    <li>Never mention War Room by name</li>
+                    <li>Never mention products or courses</li>
+                    <li>Never DM first</li>
+                    <li>Never follow up on your own comment</li>
+                </ul>
+
+                <h3>The Three Verbatim Responses</h3>
+                <p>Pick one. Post once. Leave. No edits. No additions.</p>
+
+                <p><strong>Response 1 — Default</strong><br>
+                "This might be off, but what you're describing has a name. I found this useful.<br>
+                [link]"</p>
+
+                <p><strong>Response 2 — If the thread is hostile</strong><br>
+                "Not advice—just a document that describes the failure mode you're pointing at.<br>
+                [link]"</p>
+
+                <p><strong>Response 3 — If stakes are explicit</strong><br>
+                "This doesn't fix it, but it does make the issue visible.<br>
+                [link]"</p>
+
+                <h3>What Counts as "Working"</h3>
+                <p>You are not watching clicks or sales. You are watching for replies like:</p>
+                <ul>
+                    <li>"This is exactly what I'm dealing with"</li>
+                    <li>"I didn't have words for this"</li>
+                    <li>"This explains why it feels wrong"</li>
+                </ul>
+
+                <p>If that happens:</p>
+                <ul>
+                    <li>You say nothing</li>
+                    <li>If they ask "where do I go next?" you drop the resource link once</li>
+                    <li>That's it</li>
+                </ul>
+
+                <h3>The Hard Stop</h3>
+                <p>You are now in observation mode. Do NOT:</p>
+                <ul>
+                    <li>Improve the document</li>
+                    <li>Add explanations</li>
+                    <li>Create a website</li>
+                    <li>Post summaries</li>
+                    <li>Seek validation</li>
+                </ul>
+
+                <p><strong>If you feel the urge to "help it land," that urge is the signal your work describes.</strong></p>
+
+                <h3>Engagement Rules (From Field Calibration)</h3>
+                <p><strong>Never argue with:</strong></p>
+                <ul>
+                    <li>Hostile or defensive users</li>
+                    <li>Model superiority debates</li>
+                    <li>Pricing tier or brand loyalty discussions</li>
+                </ul>
+
+                <p><strong>One reply per thread</strong> unless there is a clear invitation to continue.</p>
+                <p><strong>Prefer reframing over rebuttal.</strong> Name the failure mode. Don't correct people pedantically.</p>
+                <p><strong>If a reply would "burn cycles," disengage.</strong></p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Practice identifying failure modes and choosing the correct verbatim response:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">Here is a Reddit thread excerpt:
+
+"I've been using ChatGPT for my consulting work and it's been great, but lately I've noticed it gives me different answers to the same question. Sometimes it recommends Strategy A, then two days later with the same prompt it recommends Strategy B. I'm starting to second-guess everything it tells me. Anyone else experiencing this?"
+
+For this thread:
+1. Identify the failure mode being described
+2. Determine: engage or do not engage (and why)
+3. If engage: which of the 3 verbatim responses fits best
+4. Draft the exact comment you would post (including which response template)</span>
+                    <button class="copy-button" onclick="copyPrompt('Here is a Reddit thread excerpt:\n\n\"I\'ve been using ChatGPT for my consulting work and it\'s been great, but lately I\'ve noticed it gives me different answers to the same question. Sometimes it recommends Strategy A, then two days later with the same prompt it recommends Strategy B. I\'m starting to second-guess everything it tells me. Anyone else experiencing this?\"\n\nFor this thread:\n1. Identify the failure mode being described\n2. Determine: engage or do not engage (and why)\n3. If engage: which of the 3 verbatim responses fits best\n4. Draft the exact comment you would post (including which response template)')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the scenario or provide your own Reddit thread..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Find a real Reddit thread (or describe one you've seen) where someone is experiencing AI drift, conversational collapse, or unverified reliance. Provide: (1) Thread description or link, (2) Identified failure mode, (3) The EXACT verbatim comment you would post (using one of the 3 templates), or state "do not engage" with reason.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Example: Thread: [describe or link]. Failure mode: [conversational drift / agreeable pivoting / etc.]. My response: 'This might be off, but what you're describing has a name. I found this useful. [link]' OR 'Do not engage - [reason].'"
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 100 characters minimum</div>
+                
+                <a href="lesson-14.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Lesson 14 →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 4</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(13);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 100);
+            
+            if (isValid) {
+                saveCheckpoint(13, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

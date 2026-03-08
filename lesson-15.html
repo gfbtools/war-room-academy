@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 15: Advanced Troubleshooting - War Room Academy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">WR</div>
+            <div class="site-name">WAR ROOM ACADEMY</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lesson-content">
+            <div class="container">
+                <div class="progress-text">Module 4: Lesson 15 of 16</div>
+                <div class="progress-container">
+                    <div class="progress-bar" style="width: 94%"></div>
+                </div>
+
+                <h1>Module 4 · Lesson 15 – Advanced Troubleshooting</h1>
+                <p class="hero-subtitle">Drift typology and diagnostic reset</p>
+
+                <h3>The Five Drift Types</h3>
+                <p>Not all drift is the same. Each type has specific early signals and requires different fixes.</p>
+
+                <p><strong>Type 1: Conversational Drift</strong></p>
+                <ul>
+                    <li>What it is: Gradual loss of alignment between what you think was decided and what the system acts on</li>
+                    <li>Early signal: Decisions reappear as negotiable, rules soften over turns</li>
+                    <li>Cause: No memory re-injection; assuming AI "remembers" previous sessions</li>
+                    <li>Fix: Reload Framing Density + re-inject Memory Stack from source of truth</li>
+                </ul>
+
+                <p><strong>Type 2: Architecture Collapse</strong></p>
+                <ul>
+                    <li>What it is: System that worked in testing fails under sustained complex use</li>
+                    <li>Early signal: AI blends incompatible frameworks, gives contradictory multi-turn advice</li>
+                    <li>Cause: Complex workflows without explicit state management</li>
+                    <li>Fix: Run Ghost Protocol—map automation boundaries, identify where memory must be explicitly handled</li>
+                </ul>
+
+                <p><strong>Type 3: Agreeable Pivoting</strong></p>
+                <ul>
+                    <li>What it is: AI shifts stance to maintain user satisfaction rather than engaging substantively</li>
+                    <li>Early signal: AI reverses position when challenged, output becomes inspirational instead of precise</li>
+                    <li>Cause: Thin framing allows AI to optimize for sounding helpful instead of being accurate</li>
+                    <li>Fix: Interrupt performance, reload Framing Density with explicit Verification layer</li>
+                </ul>
+
+                <p><strong>Type 4: Context Window Exhaustion</strong></p>
+                <ul>
+                    <li>What it is: Long conversations degrade as early context is lost or compressed</li>
+                    <li>Early signal: AI "forgets" constraints stated at conversation start, revisits settled decisions</li>
+                    <li>Cause: Relying on conversation history instead of explicit memory stack</li>
+                    <li>Fix: Start new session, re-inject only essential memory stack entries from source of truth</li>
+                </ul>
+
+                <p><strong>Type 5: Expertise Simulation</strong></p>
+                <ul>
+                    <li>What it is: AI sounds authoritative but provides wrong or incomplete domain expertise</li>
+                    <li>Early signal: Forward-reasoning failure (solutions before diagnosis), framework blending, premature solutions</li>
+                    <li>Cause: Using AI in domains where you cannot verify output</li>
+                    <li>Fix: Disengage AI from this task OR bring in domain expert to verify every output</li>
+                </ul>
+
+                <h3>Diagnostic Decision Tree</h3>
+                <p>When you detect drift, classify it:</p>
+
+                <p><strong>Ask: "Is the AI contradicting previous turns?"</strong><br>
+                Yes → Conversational Drift or Context Exhaustion<br>
+                Check: Did you re-inject memory? If no → Conversational Drift. If yes → Context Exhaustion.</p>
+
+                <p><strong>Ask: "Is the AI blending incompatible approaches?"</strong><br>
+                Yes → Architecture Collapse or Expertise Simulation<br>
+                Check: Is this a complex workflow or domain expertise issue? Workflow → Architecture Collapse. Domain → Expertise Simulation.</p>
+
+                <p><strong>Ask: "Did the AI reverse its position when challenged?"</strong><br>
+                Yes → Agreeable Pivoting<br>
+                Fix: Reload Framing Density with strict Verification.</p>
+
+                <h3>The Reset Protocol (By Type)</h3>
+                <p><strong>Conversational Drift:</strong> Reload Framing Density + Re-inject Memory Stack</p>
+                <p><strong>Architecture Collapse:</strong> Run Ghost Protocol, map human interfaces</p>
+                <p><strong>Agreeable Pivoting:</strong> Interrupt, reload Framing with Verification layer</p>
+                <p><strong>Context Exhaustion:</strong> New session + re-inject essential stack entries only</p>
+                <p><strong>Expertise Simulation:</strong> Disengage OR verify every output with domain expert</p>
+
+                <h3>When to Kill the Session</h3>
+                <p>Some failures cannot be fixed mid-session. Disengage immediately if:</p>
+                <ul>
+                    <li>Reliability does not return after reset protocol</li>
+                    <li>You are too fatigued to verify output</li>
+                    <li>Stakes exceed your ability to catch errors</li>
+                    <li>You feel pressured to accept output without checking</li>
+                </ul>
+
+                <p><strong>Stopping is a skill. Disengagement preserves authority.</strong></p>
+            </div>
+        </section>
+
+        <section class="exercise-section">
+            <div class="container">
+                <h2>Interactive Exercise</h2>
+                
+                <p class="exercise-instructions">Classify 3 failure transcripts into drift types:</p>
+                
+                <div class="prompt-display">
+                    <span id="example-prompt">I will describe 3 AI session failures. For each one:
+1. Classify the drift type (Conversational Drift / Architecture Collapse / Agreeable Pivoting / Context Exhaustion / Expertise Simulation)
+2. Name the earliest signal I should have noticed
+3. State the correct reset protocol
+
+Failure 1: I asked AI to help plan a product launch. Session 1 recommended focusing on enterprise customers. Session 2 (same product, same constraints) recommended SMB customers. I never re-injected the earlier decision.
+
+Failure 2: AI gave me tax advice that sounded expert. Later I learned it violated IRS rules. I'm not an accountant and couldn't verify it.
+
+Failure 3: In a long conversation about marketing strategy, AI initially said "focus on one channel." When I pushed back saying "I need multi-channel," it said "You're right, multi-channel is better." When I challenged that, it said "Actually single-channel focus is best for your stage."
+
+Classify each and provide reset protocols.</span>
+                    <button class="copy-button" onclick="copyPrompt('I will describe 3 AI session failures. For each one:\n1. Classify the drift type (Conversational Drift / Architecture Collapse / Agreeable Pivoting / Context Exhaustion / Expertise Simulation)\n2. Name the earliest signal I should have noticed\n3. State the correct reset protocol\n\nFailure 1: I asked AI to help plan a product launch. Session 1 recommended focusing on enterprise customers. Session 2 (same product, same constraints) recommended SMB customers. I never re-injected the earlier decision.\n\nFailure 2: AI gave me tax advice that sounded expert. Later I learned it violated IRS rules. I\'m not an accountant and couldn\'t verify it.\n\nFailure 3: In a long conversation about marketing strategy, AI initially said \"focus on one channel.\" When I pushed back saying \"I need multi-channel,\" it said \"You\'re right, multi-channel is better.\" When I challenged that, it said \"Actually single-channel focus is best for your stage.\"\n\nClassify each and provide reset protocols.')">Copy</button>
+                </div>
+
+                <div class="chat-interface">
+                    <textarea 
+                        class="chat-input-area" 
+                        id="chat-input" 
+                        placeholder="Paste the scenarios or describe your own AI failures..."></textarea>
+                    
+                    <button 
+                        class="send-button" 
+                        onclick="handleSendMessage()">
+                        Send to AI
+                    </button>
+                    
+                    <div class="response-area" id="ai-response"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="checkpoint-section">
+            <div class="container">
+                <h2>Checkpoint: Proof of Understanding</h2>
+                
+                <p class="checkpoint-question">Classify 3 REAL personal AI failures into the drift typology (Conversational Drift / Architecture Collapse / Agreeable Pivoting / Context Exhaustion / Expertise Simulation). For each: name the type, earliest signal you should have caught, and what reset protocol you should have used. Be honest about failures you missed.</p>
+                
+                <textarea 
+                    class="checkpoint-input" 
+                    id="checkpoint-answer"
+                    placeholder="Failure 1: [describe]. Type: [classification]. Signal: [what you missed]. Reset: [protocol].
+Failure 2: [describe]. Type: [classification]. Signal: [what you missed]. Reset: [protocol].
+Failure 3: [describe]. Type: [classification]. Signal: [what you missed]. Reset: [protocol]."
+                    oninput="handleCheckpointInput()"></textarea>
+                
+                <div class="char-counter">0 / 150 characters minimum</div>
+                
+                <a href="lesson-16.html" class="cta-button" id="continue-button" disabled>
+                    Continue to Final Lesson →
+                </a>
+            </div>
+        </section>
+
+        <div class="navigation">
+            <a href="index.html" class="nav-button back">← Back to Module 4</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Based on The War Room Pocket Field Guide v1.0 | Built for people with real stakes</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAccess(15);
+        });
+
+        function handleSendMessage() {
+            const input = document.getElementById('chat-input');
+            const prompt = input.value;
+            sendToAI(prompt, 'ai-response');
+        }
+
+        function handleCheckpointInput() {
+            const input = document.getElementById('checkpoint-answer');
+            const answer = input.value;
+            const isValid = validateCheckpoint(answer, 150);
+            
+            if (isValid) {
+                saveCheckpoint(15, answer);
+            }
+        }
+
+        document.getElementById('chat-input')?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -111,6 +111,12 @@ function getProgressData() {
                 lesson10: false,
                 lesson11: false,
                 lesson12: false
+            },
+            module4: {
+                lesson13: false,
+                lesson14: false,
+                lesson15: false,
+                lesson16: false
             }
         };
         
@@ -134,6 +140,12 @@ function getProgressData() {
                 lesson10: false,
                 lesson11: false,
                 lesson12: false
+            },
+            module4: {
+                lesson13: false,
+                lesson14: false,
+                lesson15: false,
+                lesson16: false
             }
         };
     }
@@ -211,15 +223,17 @@ function checkAccess(lessonNumber) {
 function getLastCompletedLesson() {
     const progress = getProgressData();
     
-    // Check lessons 12 down to 1
-    for (let i = 12; i >= 1; i--) {
+    // Check lessons 16 down to 1
+    for (let i = 16; i >= 1; i--) {
         let module;
         if (i <= 4) {
             module = 'module1';
         } else if (i <= 8) {
             module = 'module2';
-        } else {
+        } else if (i <= 12) {
             module = 'module3';
+        } else {
+            module = 'module4';
         }
         
         if (progress[module][`lesson${i}`] === true) {
