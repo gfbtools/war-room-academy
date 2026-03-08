@@ -87,7 +87,7 @@ No exception has ever held.
 
 ### **Module 4: Mastery & Field Operations** (4 Lessons)  
 - Understanding AI Limitations (The Four Illusions)  
-- Training Others & Team Protocols  
+- Operational Discipline Under Pressure  
 - Advanced Troubleshooting: Drift Typology  
 - Field Operator Certification
 
