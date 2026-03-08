@@ -86,7 +86,7 @@ No exception has ever held.
 - Building a Real Memory Stack
 
 ### **Module 4: Mastery & Field Operations** (4 Lessons)  
-- Community Documentation & Reddit Field Work  
+- Understanding AI Limitations (The Four Illusions)  
 - Training Others & Team Protocols  
 - Advanced Troubleshooting: Drift Typology  
 - Field Operator Certification
